@@ -7,10 +7,13 @@ def addtodo():
     todos.append(tdo)
     functions.write_todos(todos)
 
+st.set_page_config(layout="wide")
+
 st.title("Your Todos App")
 st.header("Welcome! Get your day more productive!")
 st.subheader("Get Started!")
 
+st.text_input(label='',placeholder="Type in a To-Do", on_change=addtodo, key='newtodo')
 
 for index, i in enumerate(todos):
     check = st.checkbox(i,key=i)
@@ -21,6 +24,5 @@ for index, i in enumerate(todos):
         del st.session_state[i]
         st.experimental_rerun()
 
-st.text_input(label='',placeholder="Type in a To-Do", on_change=addtodo, key='newtodo')
-st.session_state
+# st.session_state
 
